@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-dark  navbar-dark">
     <div class="container-fluid">
       <router-link to="/" class="navbar-brand">
         <img src="https://cdn-icons-png.flaticon.com/512/188/188987.png" alt="Logo" width="30" height="34" class="d-inline-block">
