@@ -13,26 +13,24 @@
         <article class="col-md-4">
           <h5>Links Úteis</h5>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Início</a></li>
-            <li><a href="#" class="text-white">Pokémons</a></li>
-            <li><a href="#" class="text-white">Tipos</a></li>
-            <li><a href="#" class="text-white">Contato</a></li>
+            <li><router-link to="/" class="text-white">Início</router-link></li>
+            <li><router-link to="/" class="text-white">Pokémons</router-link></li>
+            <li><router-link to="/" class="text-white">Tipos</router-link></li>
+            <li><router-link to="/" class="text-white">Contato</router-link></li>
           </ul>
         </article>
 
-        <!-- Redes sociais -->
         <article class="col-md-4">
           <h5>Siga-nos</h5>
-          <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="text-white me-3"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="text-white me-3"><i class="bi bi-youtube"></i></a>
+          <router-link to="#" class="text-white me-3"><i class="bi bi-facebook"></i></router-link>
+          <router-link to="#" class="text-white me-3"><i class="bi bi-twitter-x"></i></router-link>
+          <router-link to="#" class="text-white me-3"><i class="bi bi-instagram"></i></router-link>
+          <router-link to="#" class="text-white me-3"><i class="bi bi-youtube"></i></router-link>
         </article>
       </section>
 
       <hr class="bg-light" />
 
-      <!-- Copyright -->
       <section class="text-center py-3">
         <p>&copy; 2024 Pokebox. Todos os direitos reservados.</p>
       </section>
