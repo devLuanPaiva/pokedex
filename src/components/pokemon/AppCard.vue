@@ -63,7 +63,6 @@ const getColorForType = (type) => {
   return typeColors[type] || '#000'
 }
 
-// Assistir às mudanças no Pokémon selecionado
 watch(
   () => pokemonStore.selectedPokemon,
   (newPokemon) => {
@@ -81,12 +80,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="" v-if="pokemonStore.selectedPokemon">
+  <div v-if="pokemonStore.selectedPokemon">
     <article class="card m-2">
       <h3 class="text-center">{{ pokemonStore.selectedPokemon }}</h3>
       <img :src="pokemonImage" class="card-img-top" alt="pokemon" />
 
-      Tipos de Pokémon com cores
       <div class="text-center mt-2">
         <span
           v-for="type in pokemonTypes"
@@ -98,23 +96,34 @@ onMounted(() => {
         </span>
       </div>
 
-      Estatísticas
+      <h5 class="mt-3">Estatísticas</h5>
       <ul class="list-group list-group-flush">
         <li v-for="stat in pokemonStats" :key="stat.name" class="list-group-item">
           {{ stat.name }}: {{ stat.value }}
+          <div class="progress mt-2">
+            <span
+              class="progress-bar"
+              role="progressbar"
+              :style="{ width: stat.value + '%' }"
+              :aria-valuenow="stat.value"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              {{ stat.value }}%
+            </span>
+          </div>
         </li>
       </ul>
 
-      Cadeia de Evolução
-      <div v-if="pokemonEvolutionChain.length > 0" class="mt-3 text-center">
+      <section v-if="pokemonEvolutionChain.length > 0" class="mt-3 text-center">
         <h5>Cadeia de Evolução:</h5>
         <div class="d-flex justify-content-center">
-          <div v-for="evolution in pokemonEvolutionChain" :key="evolution.name" class="mx-2">
+          <figure v-for="evolution in pokemonEvolutionChain" :key="evolution.name" class="mx-2">
             <img :src="evolution.sprite" alt="evolution" width="60" height="60" />
-            <p>{{ evolution.name }}</p>
-          </div>
+            <figcaption>{{ evolution.name }}</figcaption>
+          </figure>
         </div>
-      </div>
+      </section>
     </article>
   </div>
 </template>
