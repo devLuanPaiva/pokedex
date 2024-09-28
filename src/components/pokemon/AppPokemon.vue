@@ -33,7 +33,7 @@ const handleClick = () => {
     <article class="card m-2" @click="handleClick">
       <div class="card-overlay"></div>
       <h3 class="text-center">{{ pokemon.name }}</h3>
-      <img :src="pokemonImage" class="card-img-top" alt="pokemon" />
+      <img :src="pokemonImage" class="card-img-top" :alt="pokemon.name" />
     </article>
   </div>
 </template>
