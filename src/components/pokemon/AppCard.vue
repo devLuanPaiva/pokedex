@@ -81,45 +81,52 @@ onMounted(() => {
 
 <template>
   <div v-if="pokemonStore.selectedPokemon">
-    <article class="card m-2">
-      <h3 class="text-center">{{ pokemonStore.selectedPokemon }}</h3>
-      <img :src="pokemonImage" class="card-img-top" alt="pokemon" />
+    <article class="card pokemon-card shadow-lg">
+      <h2 class="text-center text-primary ">{{ pokemonStore.selectedPokemon }}</h2>
+      <img :src="pokemonImage" class="card-img-top rounded pokemon-img" alt="pokemon" />
 
       <div class="text-center mt-2">
         <span
           v-for="type in pokemonTypes"
           :key="type.name"
           :style="{ backgroundColor: type.color }"
-          class="badge m-1"
+          class="badge m-1 pokemon-type"
         >
           {{ type.name }}
         </span>
       </div>
 
-      <h5 class="mt-3">Estatísticas</h5>
+      <h5 class="mt-3 text-secondary">Estatísticas</h5>
       <ul class="list-group list-group-flush">
-        <li v-for="stat in pokemonStats" :key="stat.name" class="list-group-item">
-          {{ stat.name }}: {{ stat.value }}
+        <li v-for="stat in pokemonStats" :key="stat.name" class="list-group-item pokemon-stat-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <span>{{ stat.name }}</span>
+            <span class="badge bg-info">{{ stat.value }}</span>
+          </div>
           <div class="progress mt-2">
             <span
-              class="progress-bar"
+              class="progress-bar bg-success"
               role="progressbar"
-              :style="{ width: stat.value + '%' }"
+              :style="{ width: (stat.value / 250) * 100 + '%' }"
               :aria-valuenow="stat.value"
               aria-valuemin="0"
-              aria-valuemax="100"
-            >
-              {{ stat.value }}%
-            </span>
+              aria-valuemax="250"
+            ></span>
           </div>
         </li>
       </ul>
 
       <section v-if="pokemonEvolutionChain.length > 0" class="mt-3 text-center">
-        <h5>Cadeia de Evolução:</h5>
+        <h5 class="text-warning">Cadeia de Evolução:</h5>
         <div class="d-flex justify-content-center">
           <figure v-for="evolution in pokemonEvolutionChain" :key="evolution.name" class="mx-2">
-            <img :src="evolution.sprite" alt="evolution" width="60" height="60" />
+            <img
+              :src="evolution.sprite"
+              alt="evolution"
+              width="60"
+              height="60"
+              class="rounded-circle shadow-sm"
+            />
             <figcaption>{{ evolution.name }}</figcaption>
           </figure>
         </div>
@@ -127,3 +134,66 @@ onMounted(() => {
     </article>
   </div>
 </template>
+
+<style scoped>
+.pokemon-card {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #f7f9fc;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+.pokemon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pokemon-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  transition: transform 0.2s;
+}
+.pokemon-img:hover {
+  transform: scale(1.05);
+}
+
+.pokemon-type {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 1rem;
+  text-transform: capitalize;
+}
+
+.pokemon-stat-item {
+  border: none;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
+}
+.pokemon-stat-item:hover {
+  background-color: #e9ecef;
+}
+
+.progress {
+  height: 8px;
+  border-radius: 5px;
+}
+.progress-bar {
+  transition: width 0.4s;
+}
+
+.badge.bg-info {
+  background-color: #17a2b8;
+}
+
+.badge.bg-success {
+  background-color: #28a745;
+}
+.text-center{
+  text-transform: uppercase;
+}
+</style>
