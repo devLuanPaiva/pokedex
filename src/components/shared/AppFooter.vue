@@ -3,9 +3,9 @@
     <section class="container py-4">
       <section class="row">
         <article class="col-md-4">
-          <h5>Sobre o Pokebox</h5>
+          <h5>Sobre o pokedex</h5>
           <p>
-            Pokebox é o lugar perfeito para os treinadores encontrarem informações e curiosidades
+            pokedex é o lugar perfeito para os treinadores encontrarem informações e curiosidades
             sobre seus Pokémons favoritos.
           </p>
         </article>
@@ -32,7 +32,7 @@
       <hr class="bg-light" />
 
       <section class="text-center py-3">
-        <p>&copy; 2024 Pokebox. Todos os direitos reservados.</p>
+        <p>&copy; 2024 pokedex. Todos os direitos reservados.</p>
       </section>
     </section>
   </footer>

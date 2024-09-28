@@ -6,11 +6,11 @@ describe('AppFooter.vue', () => {
   it('should render footer with sections', () => {
     const wrapper = mount(AppFooter, {
       global: {
-        stubs: ['router-link'], 
+        stubs: ['router-link']
       }
     })
 
-    expect(wrapper.html()).toContain('Sobre o Pokebox')
+    expect(wrapper.html()).toContain('Sobre o pokedex')
 
     expect(wrapper.html()).toContain('Links Úteis')
 

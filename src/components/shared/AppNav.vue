@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <router-link to="/" class="navbar-brand">
         <img src="https://cdn-icons-png.flaticon.com/512/188/188987.png" alt="Logo" width="30" height="34" class="d-inline-block">
-        Pokebox
+        Pokédex
       </router-link>
       <button
         class="navbar-toggler"
