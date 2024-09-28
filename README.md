@@ -50,32 +50,35 @@ Atualmente, a aplicação está em fase inicial. Já foi realizada a organizaç�
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/devluanpaiva/pokebox.git
+   git clone https://github.com/devluanpaiva/pokedex.git
 
    ```
 
 2. Navegue até o diretório:
 
 ```sh
-cd pokebox
+cd pokedex
 
 ```
+
 3. Instale as dependências:
+
 ```bash
 npm install
-# ou 
+# ou
 yarn install
 ```
+
 4. Inicie o servidor de desenvolvimento:
-    ```bash
-    npm run dev
-    # or
-    yarn dev
-    # or
-    pnpm dev
-    # or
-    bun dev
-    ```
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
 5. Abra o navegador e acesse `http://localhost::5173`.
 
 ##🔬 Testes

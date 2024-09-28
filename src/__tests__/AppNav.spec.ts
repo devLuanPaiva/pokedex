@@ -8,7 +8,7 @@ describe('AppNav.vue', () => {
 
     const brandLink = wrapper.find('.navbar-brand')
     expect(brandLink.exists()).toBe(true)
-    expect(brandLink.text()).toContain('Pokebox')
+    expect(brandLink.text()).toContain('Pokédex')
 
     const navCollapse = wrapper.find('.navbar-collapse')
     expect(navCollapse.exists()).toBe(true)

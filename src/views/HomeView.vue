@@ -1,13 +1,17 @@
 <script setup>
-import AppCard from '../components/pokemon/AppCard.vue';
+import AppCard from '../components/pokemon/AppCard.vue'
 import AppListPokemons from '../components/pokemon/AppListPokemons.vue'
 </script>
 
 <template>
   <section class="container pt-4">
-    <div class="d-flex justify-content-between flex-sm-column flex-md-row gap-3">
-      <AppCard />
-      <AppListPokemons/>
+    <div class="row">
+      <section class="col-sm-12 col-md-6">
+        <AppCard />
+      </section>
+      <section class="col-sm-12 col-md-6">
+        <AppListPokemons />
+      </section>
     </div>
   </section>
 </template>
