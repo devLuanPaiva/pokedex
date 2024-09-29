@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import AppListPokemons from '@/components/pokemon/AppListPokemons.vue'
-import AppPokemon from '@/components/pokemon/AppPokemon.vue'
+import AppPokemonItem from '@/components/pokemon/AppPokemonItem.vue'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 
@@ -36,7 +36,7 @@ describe('AppListPokemons.vue', () => {
 
     expect(wrapper.vm.pokemons.list).toHaveLength(3) 
 
-    const pokemonItems = wrapper.findAllComponents(AppPokemon)
+    const pokemonItems = wrapper.findAllComponents(AppPokemonItem)
     expect(pokemonItems).toHaveLength(3) 
     expect(pokemonItems[0].props().name).toBe('bulbasaur')
     expect(pokemonItems[1].props().name).toBe('ivysaur')
