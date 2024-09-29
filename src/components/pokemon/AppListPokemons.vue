@@ -5,10 +5,9 @@ import AppPokemon from './AppPokemon.vue'
 let pokemons = reactive({ list: [] })
 let searchTerm = ref('')
 let filteredPokemons = ref([])
-let selectedType = ref('') // Armazena o tipo selecionado
+let selectedType = ref('')
 
 const getColorForType = (type) => {
-  // Retorna a cor associada a cada tipo (você pode personalizar isso)
   const colors = {
     grass: '#78C850',
     fire: '#F08030',
@@ -26,7 +25,7 @@ const getColorForType = (type) => {
     rock: '#B8A038',
     ghost: '#705898'
   }
-  return colors[type] || '#FFFFFF' // Cor padrão se não encontrado
+  return colors[type] || '#FFFFFF' 
 }
 
 const fetchPokemonDetails = async (name) => {
@@ -46,26 +45,22 @@ const fetchAllPokemons = async () => {
   const data = await response.json()
   const pokemonPromises = data.results.map((pokemon) => fetchPokemonDetails(pokemon.name))
   pokemons.list = await Promise.all(pokemonPromises)
-  filteredPokemons.value = pokemons.list // Inicialmente mostra todos
+  filteredPokemons.value = pokemons.list 
 }
 
 onMounted(fetchAllPokemons)
 
-// Observa mudanças no searchTerm
 watch(searchTerm, (newTerm) => {
   filterPokemons(newTerm, selectedType.value)
 })
 
-// Observa mudanças no selectedType
 watch(selectedType, (newType) => {
   filterPokemons(searchTerm.value, newType)
 })
 
-// Função para filtrar Pokémons
 const filterPokemons = (term, type) => {
   let filtered = pokemons.list
 
-  // Filtra por tipo se um tipo for selecionado
   if (type) {
     filtered = filtered.filter(
       (pokemon) =>
@@ -83,7 +78,6 @@ const filterPokemons = (term, type) => {
 </script>
 
 <template>
-  <section class="pokemon-section">
     <section class="filters">
       <input
         type="text"
@@ -92,7 +86,7 @@ const filterPokemons = (term, type) => {
         class="search-input"
       />
       <select v-model="selectedType" class="dropdown">
-        <option disabled class="btn btn-secondary dropdown-toggle"> Filtrar</option>
+        <option selected value="" class="btn btn-secondary dropdown-toggle"> Filtrar</option>
         <option  value=""> Todos</option>
         <option value="grass">Grass</option>
         <option value="fire">Fire</option>
@@ -111,7 +105,7 @@ const filterPokemons = (term, type) => {
         <option value="ghost">Ghost</option>
       </select>
     </section>
-    <article class="pokemon-item row">
+    <section class="pokemon-item row">
       <AppPokemon
         v-for="pokemon in filteredPokemons"
         :key="pokemon.name"
@@ -119,19 +113,10 @@ const filterPokemons = (term, type) => {
         class="pokemon-card"
       />
       <p v-if="filteredPokemons.length === 0" class="no-results">Nenhum Pokémon encontrado.</p>
-    </article>
-  </section>
+    </section>
 </template>
 
 <style scoped>
-.pokemon-section {
-  padding: 20px;
-  text-align: center;
-  background-color: #f0f8ff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
 .search-input {
   padding: 10px;
   margin-bottom: 20px;
@@ -175,8 +160,6 @@ const filterPokemons = (term, type) => {
     transform 0.2s,
     box-shadow 0.2s;
   border-radius: 10px;
-  padding: 10px;
-  background-color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 

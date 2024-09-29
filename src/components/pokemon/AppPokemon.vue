@@ -109,9 +109,10 @@ const handleClick = () => {
 .text-center {
   font-family: 'Poppins', sans-serif;
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1rem;
   letter-spacing: 1px;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
 
 .pokemon-card:hover .text-center {
