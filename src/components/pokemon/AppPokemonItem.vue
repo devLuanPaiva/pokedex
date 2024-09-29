@@ -33,7 +33,7 @@ const handleClick = () => {
     <article class="card m-2" @click="handleClick">
       <div class="card-overlay"></div>
       <h3 class="text-center">{{ pokemon.name }}</h3>
-      <img :src="pokemonImage" class="card-img-top" alt="pokemon" />
+      <img :src="pokemonImage" class="card-img-top" :alt="pokemon.name" />
     </article>
   </div>
 </template>
@@ -109,9 +109,10 @@ const handleClick = () => {
 .text-center {
   font-family: 'Poppins', sans-serif;
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1rem;
   letter-spacing: 1px;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
 
 .pokemon-card:hover .text-center {
