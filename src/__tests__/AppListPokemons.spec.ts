@@ -86,10 +86,25 @@ describe('AppListPokemons.vue', () => {
     await new Promise((resolve) => setTimeout(resolve, 100))
 
     expect(wrapper.vm.pokemons.list).toHaveLength(3)
-    wrapper.vm.searchTerm = 'pikachu'; 
-    await wrapper.vm.$nextTick();
-    expect(wrapper.vm.filteredPokemons).toHaveLength(0);
+    wrapper.vm.searchTerm = 'pikachu'
+    await wrapper.vm.$nextTick()
+    expect(wrapper.vm.filteredPokemons).toHaveLength(0)
     const noResultsMessage = wrapper.find('.no-results')
     expect(noResultsMessage.text()).toBe('Nenhum Pokémon encontrado.')
+  })
+
+  it('filters Pokémon by selected type', async () => {
+    await wrapper.vm.$nextTick()
+    await new Promise((resolve) => setTimeout(resolve, 100))
+
+    const select = wrapper.find('select')
+    await select.setValue('grass')
+    await wrapper.vm.$nextTick()
+
+    const pokemonItems = wrapper.findAllComponents(AppPokemonItem)
+    expect(pokemonItems).toHaveLength(3)
+    expect(pokemonItems[0].props().name).toBe('bulbasaur')
+    expect(pokemonItems[1].props().name).toBe('ivysaur')
+    expect(pokemonItems[2].props().name).toBe('venusaur')
   })
 })
