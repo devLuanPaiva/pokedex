@@ -67,4 +67,17 @@ describe('AppListPokemons.vue', () => {
     expect(pokemonItems[1].props().name).toBe('ivysaur')
     expect(pokemonItems[2].props().name).toBe('venusaur')
   })
+
+  it('filters Pokémon by name', async () => {
+    await wrapper.vm.$nextTick()
+    await new Promise((resolve) => setTimeout(resolve, 100))
+
+    expect(wrapper.vm.pokemons.list).toHaveLength(3)
+
+    wrapper.vm.searchTerm = 'iv'
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.vm.filteredPokemons).toHaveLength(1);
+    expect(wrapper.vm.filteredPokemons[0].name).toBe('ivysaur');
+  })
 })
