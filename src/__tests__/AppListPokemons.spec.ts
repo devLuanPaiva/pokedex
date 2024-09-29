@@ -77,7 +77,19 @@ describe('AppListPokemons.vue', () => {
     wrapper.vm.searchTerm = 'iv'
     await wrapper.vm.$nextTick()
 
-    expect(wrapper.vm.filteredPokemons).toHaveLength(1);
-    expect(wrapper.vm.filteredPokemons[0].name).toBe('ivysaur');
+    expect(wrapper.vm.filteredPokemons).toHaveLength(1)
+    expect(wrapper.vm.filteredPokemons[0].name).toBe('ivysaur')
+  })
+
+  it('display "Nenhum Pokémon encontrado." message when searche returns no results', async () => {
+    await wrapper.vm.$nextTick()
+    await new Promise((resolve) => setTimeout(resolve, 100))
+
+    expect(wrapper.vm.pokemons.list).toHaveLength(3)
+    wrapper.vm.searchTerm = 'pikachu'; 
+    await wrapper.vm.$nextTick();
+    expect(wrapper.vm.filteredPokemons).toHaveLength(0);
+    const noResultsMessage = wrapper.find('.no-results')
+    expect(noResultsMessage.text()).toBe('Nenhum Pokémon encontrado.')
   })
 })
