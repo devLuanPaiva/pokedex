@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, reactive, ref, watch } from 'vue'
-import AppPokemon from './AppPokemon.vue'
+import AppPokemonItem from './AppPokemonItem.vue'
 
 let pokemons = reactive({ list: [] })
 let searchTerm = ref('')
@@ -105,8 +105,8 @@ const filterPokemons = (term, type) => {
         <option value="ghost">Ghost</option>
       </select>
     </section>
-    <section class="pokemon-item row">
-      <AppPokemon
+    <section class="pokemon-list row">
+      <AppPokemonItem
         v-for="pokemon in filteredPokemons"
         :key="pokemon.name"
         :name="pokemon.name"
@@ -148,7 +148,7 @@ const filterPokemons = (term, type) => {
   border-color: #005f7f;
 }
 
-.pokemon-item {
+.pokemon-list {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
