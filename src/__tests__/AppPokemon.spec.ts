@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
-import AppPokemon from '@/components/pokemon/AppPokemon.vue' 
+import AppPokemonItem from '@/components/pokemon/AppPokemonItem.vue' 
 import { usePokemonStore } from '@/stores/usePokemonStore'
 
 global.fetch = vi.fn(() =>
@@ -14,7 +14,7 @@ global.fetch = vi.fn(() =>
   } as Response)
 )
 
-describe('AppPokemon Component', () => {
+describe('AppPokemonItem Component', () => {
   let pokemonStore: ReturnType<typeof usePokemonStore>
 
   beforeEach(() => {
@@ -24,7 +24,7 @@ describe('AppPokemon Component', () => {
 
 
   it('selects a pokemon on click', async () => {
-    const wrapper = mount(AppPokemon, {
+    const wrapper = mount(AppPokemonItem, {
       props: { name: 'bulbasaur' },
     })
 
