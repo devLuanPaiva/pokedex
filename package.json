@@ -1,5 +1,5 @@
 {
-  "name": "pokedex",
+  "name": "pokedex-backend",
   "private": true,
   "scripts": {
     "build": "turbo build",
