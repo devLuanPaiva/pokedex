@@ -5,6 +5,6 @@ export default interface RepositoryFavorites {
   delete(favorite: IFavorites): Promise<void>;
   findByPokemonId(
     userId: number,
-    pokemonName: string
+    pokemon: string
   ): Promise<IFavorites | null>;
 }

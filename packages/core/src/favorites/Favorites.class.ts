@@ -7,7 +7,7 @@ export default class Favorites {
   async addFavorite(favorite: IFavorites): Promise<void> {
     const existingFavorites = await this.repo.findByPokemonId(
       favorite.user.id,
-      favorite.pokemonName
+      favorite.pokemon
     );
     if (existingFavorites) {
       throw new Error("Já adicionado aos favoritos!");
@@ -17,7 +17,7 @@ export default class Favorites {
   async removeFavorite(favorite: IFavorites): Promise<void> {
     const existingFavorites = await this.repo.findByPokemonId(
       favorite.user.id,
-      favorite.pokemonName
+      favorite.pokemon
     );
     if (!existingFavorites) {
       throw new Error("Pokémon não encontrado nos favoritos!");
