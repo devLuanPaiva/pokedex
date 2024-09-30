@@ -8,11 +8,10 @@ datasource db {
 }
 
 model Favorite {
-  id        Int    @id @default(autoincrement())
-  pokemonId String
-  name      String
-  user      User   @relation(fields: [userId], references: [id])
-  userId    Int
+  id      Int    @id @default(autoincrement())
+  pokemon String
+  user    User   @relation(fields: [userId], references: [id])
+  userId  Int
 
   @@map("favorite")
 }
