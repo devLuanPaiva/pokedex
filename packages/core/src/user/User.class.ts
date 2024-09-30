@@ -11,7 +11,7 @@ export default class User {
   async register(user: IUser): Promise<void> {
     const existingUser = await this.repo.searchUser(user.username);
     if (existingUser) throw new Error("Usuário já cadastrado");
-    const passwordCryptography = await this.crypt.cryptography(user.password!);
+    const passwordCryptography = await this.crypt.cryptography(user.password);
     const newUser: IUser = {
       ...user,
       password: passwordCryptography,
@@ -24,7 +24,7 @@ export default class User {
     if (!user) {
       throw new Error("Usuário não encontrado!");
     }
-    const isPasswordValid = await this.crypt.compare(password, user.password!);
+    const isPasswordValid = await this.crypt.compare(password, user.password);
     if (!isPasswordValid) {
       throw new Error("Credenciais inválidas!");
     }
