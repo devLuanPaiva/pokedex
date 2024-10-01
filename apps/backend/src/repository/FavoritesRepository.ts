@@ -8,7 +8,7 @@ export class FavoritesRepository implements RepositoryFavorites {
     await this.prisma.favorite.create({
       data: {
         pokemon: favorite.pokemon,
-        userId: favorite.user.id,
+        user: { connect: { id: favorite.user.id } },
       },
     });
   }
