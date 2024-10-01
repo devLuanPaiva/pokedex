@@ -26,8 +26,7 @@ export class FavoritesController {
       await favoritesService.removeFavorite(favorite);
       return res
         .status(204)
-        .send()
-        .json({ message: "Pokémon removido dos favoritos!" });
+        .send();
     } catch (error: any) {
       return res.status(404).json({ message: error.message });
     }
