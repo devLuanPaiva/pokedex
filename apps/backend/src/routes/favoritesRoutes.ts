@@ -14,11 +14,11 @@ router.delete("/favorites/remove", async (req, res) => {
   await favoritesController.remove(req, res);
 });
 
-router.post("user/register", async (req, res) => {
+router.post("/user/register", async (req, res) => {
   await userController.register(req, res);
 });
 
-router.post("user/login", async (req, res) => {
+router.post("/user/login", async (req, res) => {
   await userController.login(req, res);
 });
 
