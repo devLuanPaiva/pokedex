@@ -96,7 +96,7 @@ const isFavorite = () => {
     <article class="card pokemon-card shadow-lg">
       <header class="d-flex justify-content-between align-items-center">
         <h2 class="text-center text-primary ">{{ pokemonStore.selectedPokemon }}</h2>
-        <i :class="isFavorite() ? 'fas fa-heart text-danger' : 'far fa-heart'" @click="toggleFavorite"
+        <i :class="isFavorite() ? 'fas fa-heart text-danger heart-icon' : 'far fa-heart heart-icon'" @click="toggleFavorite"
           style="cursor: pointer; font-size: 1.5rem;" title="Favoritar Pokémon"></i>
       </header>
       <img :src="pokemonImage" class="card-img-top rounded pokemon-img" alt="pokemon" />

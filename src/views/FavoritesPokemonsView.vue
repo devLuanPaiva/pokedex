@@ -10,16 +10,21 @@ const fetchPokemonData = async (name) => {
         const pokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
         const pokemonData = await pokemonResponse.json()
 
+        const imageUrl = pokemonData.sprites && pokemonData.sprites.other 
+            ? pokemonData.sprites.other['official-artwork']?.front_default 
+            : null;
+
         return {
             name: pokemonData.name,
             number: pokemonData.id,
-            image: pokemonData.sprites.other['official-artwork'].front_default
+            image: imageUrl
         }
     } catch (error) {
         console.error(`Erro ao buscar dados do Pokémon ${name}:`, error)
         return null
     }
 }
+
 
 const loadFavoritePokemons = async () => {
     const favorites = JSON.parse(localStorage.getItem('pokemonsFavorites')) || []
