@@ -77,21 +77,33 @@ onMounted(() => {
     fetchPokemonData(pokemonStore.selectedPokemon)
   }
 })
+
+const toggleFavorite = () => {
+  if (pokemonStore.selectedPokemon) {
+    pokemonStore.toggleFavorites(pokemonStore.selectedPokemon)
+  }
+}
+const isFavorite = () => {
+  if (pokemonStore.selectedPokemon) {
+    return pokemonStore.isFavorite(pokemonStore.selectedPokemon)
+}
+  return false;
+}
 </script>
 
 <template>
   <div v-if="pokemonStore.selectedPokemon">
     <article class="card pokemon-card shadow-lg">
-      <h2 class="text-center text-primary ">{{ pokemonStore.selectedPokemon }}</h2>
+      <header class="d-flex justify-content-between align-items-center">
+        <h2 class="text-center text-primary ">{{ pokemonStore.selectedPokemon }}</h2>
+        <i :class="isFavorite() ? 'fas fa-heart text-danger' : 'far fa-heart'" @click="toggleFavorite"
+          style="cursor: pointer; font-size: 1.5rem;" title="Favoritar Pokémon"></i>
+      </header>
       <img :src="pokemonImage" class="card-img-top rounded pokemon-img" alt="pokemon" />
 
       <div class="text-center mt-2">
-        <span
-          v-for="type in pokemonTypes"
-          :key="type.name"
-          :style="{ backgroundColor: type.color }"
-          class="badge m-1 pokemon-type"
-        >
+        <span v-for="type in pokemonTypes" :key="type.name" :style="{ backgroundColor: type.color }"
+          class="badge m-1 pokemon-type">
           {{ type.name }}
         </span>
       </div>
@@ -104,14 +116,8 @@ onMounted(() => {
             <span class="badge bg-info">{{ stat.value }}</span>
           </div>
           <div class="progress mt-2">
-            <span
-              class="progress-bar bg-success"
-              role="progressbar"
-              :style="{ width: (stat.value / 250) * 100 + '%' }"
-              :aria-valuenow="stat.value"
-              aria-valuemin="0"
-              aria-valuemax="250"
-            ></span>
+            <span class="progress-bar bg-success" role="progressbar" :style="{ width: (stat.value / 250) * 100 + '%' }"
+              :aria-valuenow="stat.value" aria-valuemin="0" aria-valuemax="250"></span>
           </div>
         </li>
       </ul>
@@ -120,13 +126,7 @@ onMounted(() => {
         <h5 class="text-warning">Cadeia de Evolução:</h5>
         <div class="d-flex justify-content-center">
           <figure v-for="evolution in pokemonEvolutionChain" :key="evolution.name" class="mx-2">
-            <img
-              :src="evolution.sprite"
-              alt="evolution"
-              width="60"
-              height="60"
-              class="rounded-circle shadow-sm"
-            />
+            <img :src="evolution.sprite" alt="evolution" width="60" height="60" class="rounded-circle shadow-sm" />
             <figcaption>{{ evolution.name }}</figcaption>
           </figure>
         </div>
@@ -144,6 +144,7 @@ onMounted(() => {
     transform 0.3s,
     box-shadow 0.3s;
 }
+
 .pokemon-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -157,6 +158,7 @@ onMounted(() => {
   display: block;
   transition: transform 0.2s;
 }
+
 .pokemon-img:hover {
   transform: scale(1.05);
 }
@@ -174,6 +176,7 @@ onMounted(() => {
   padding: 0.5rem 1rem;
   transition: background-color 0.3s;
 }
+
 .pokemon-stat-item:hover {
   background-color: #e9ecef;
 }
@@ -182,6 +185,7 @@ onMounted(() => {
   height: 8px;
   border-radius: 5px;
 }
+
 .progress-bar {
   transition: width 0.4s;
 }
@@ -193,7 +197,8 @@ onMounted(() => {
 .badge.bg-success {
   background-color: #28a745;
 }
-.text-center{
+
+.text-center {
   text-transform: uppercase;
 }
 </style>
