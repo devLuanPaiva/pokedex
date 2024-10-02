@@ -1,6 +1,6 @@
 import AppCard from '@/components/pokemon/AppCard.vue'
 import { mount } from '@vue/test-utils'
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
 import { usePokemonStore } from '@/stores/usePokemonStore'
 
