@@ -22,7 +22,7 @@
             <router-link class="nav-link" aria-current="page" to="/">Inicio</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/about">Sobre</router-link>
+            <router-link class="nav-link" to="/favorites">Favoritos</router-link>
           </li>
         </ul>
       </div>
