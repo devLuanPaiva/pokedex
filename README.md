@@ -1,4 +1,4 @@
-# Pokébex
+# Pokédex
 
 ## Descrição
 
