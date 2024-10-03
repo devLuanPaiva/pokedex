@@ -37,7 +37,7 @@ describe('FavoritesPokemonsView.vue', () => {
         const wrapper = mount(FavoritesPokemonsView);
         await wrapper.vm.loadFavoritePokemons(); 
         expect(wrapper.find('h2').text()).toBe('Pokémons Favoritos');
-
+        await wrapper.vm.$nextTick();
         const pokemonTitles = wrapper.findAll('.card-title');
         expect(pokemonTitles.length).toBe(2); 
         expect(pokemonTitles[0].text()).toBe('PIKACHU');
