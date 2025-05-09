@@ -88,9 +88,6 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
-## 🌌 Interfaces
-
-![Home](https://ik.imagekit.io/p0mm3nebo/pokedex/Facebook%20cover%20-%205.jpg?updatedAt=1746794346157)
 ## 📚 Tutorial de Uso
 
 Ao acessar a aplicação Pokédex, você será apresentado a uma lista de 300 Pokémon, exibindo seus nomes e imagens. Aqui está um guia rápido sobre como usar a aplicação:
@@ -133,7 +130,9 @@ Ao acessar a aplicação Pokédex, você será apresentado a uma lista de 300 Po
 
 Siga essas instruções para explorar e encontrar informações sobre seus Pokémon favoritos de maneira fácil e rápida!
 
-## 🖼️ Exemplos da Interface
+## 🌌 Interfaces
+
+![Home](https://ik.imagekit.io/p0mm3nebo/pokedex/Facebook%20cover%20-%205.jpg?updatedAt=1746794346157)
 
 ### Listagem de Pokémon
 ![Listagem de Pokémon](./src/assets/filtro.png)
