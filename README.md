@@ -1,6 +1,19 @@
-# Pokébex
+# Pokédex
+<div align="center">
 
-## Descrição
+<img src="https://cdn-icons-png.flaticon.com/512/188/188987.png" width="350px">
+<div data-badges>
+  <img src="https://img.shields.io/badge/vue.js-%2335495e.svg?style=for-the-badge&logo=vue.js&logoColor=%234FC08D" alt="Vue.js" />
+  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/pokéapi-%23FFCB05.svg?style=for-the-badge&logo=pokemon&logoColor=black" alt="PokéAPI" />
+  <img src="https://img.shields.io/badge/vitest-%23262626.svg?style=for-the-badge&logo=vitest&logoColor=%23FFD700" alt="Vitest" />
+  <img src="https://img.shields.io/badge/bootstrap-%237952b3.svg?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" />
+  <img src="https://img.shields.io/badge/cypress-%23172a3a.svg?style=for-the-badge&logo=cypress&logoColor=white" alt="Cypress" />
+  <img src="https://img.shields.io/badge/html5-%23e34f26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/css3-%231572b6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+</div>
+</div>
+
 
 Pokédex é uma aplicação web que funciona como uma Pokédex, permitindo aos usuários pesquisar, visualizar e filtrar informações sobre os Pokémon. A aplicação utiliza a PokeAPI para obter dados sobre os Pokémon.
 
