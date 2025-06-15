@@ -1,4 +1,5 @@
 # Pokédex
+
 <div align="center">
 
 <img src="https://cdn-icons-png.flaticon.com/512/188/188987.png" width="350px">
@@ -13,7 +14,6 @@
   <img src="https://img.shields.io/badge/css3-%231572b6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
 </div>
 </div>
-
 
 Pokédex é uma aplicação web que funciona como uma Pokédex, permitindo aos usuários pesquisar, visualizar e filtrar informações sobre os Pokémon. A aplicação utiliza a PokeAPI para obter dados sobre os Pokémon.
 
@@ -101,7 +101,6 @@ npm run test:e2e
 ```sh
 npm run lint
 ```
-
 ## 📚 Tutorial de Uso
 
 Ao acessar a aplicação Pokédex, você será apresentado a uma lista de 300 Pokémon, exibindo seus nomes e imagens. Aqui está um guia rápido sobre como usar a aplicação:
@@ -144,7 +143,9 @@ Ao acessar a aplicação Pokédex, você será apresentado a uma lista de 300 Po
 
 Siga essas instruções para explorar e encontrar informações sobre seus Pokémon favoritos de maneira fácil e rápida!
 
-## 🖼️ Exemplos da Interface
+## 🌌 Interfaces
+
+![Home](https://ik.imagekit.io/p0mm3nebo/pokedex/Facebook%20cover%20-%205.jpg?updatedAt=1746794346157)
 
 ### Listagem de Pokémon
 ![Listagem de Pokémon](./src/assets/filtro.png)
